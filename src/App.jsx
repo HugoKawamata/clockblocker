@@ -2,10 +2,8 @@ import "./App.css"
 import { DateTime } from "luxon"
 import Clock from "./components/Clock"
 
-const SECONDS_IN_DAY = 86400
-
+// TODO: Set this up on an interval to update every 10 sec or so
 const secondsPastMidnight = DateTime.now().toSeconds() - DateTime.now().startOf("day").toSeconds()
-const dayPercentComplete = (secondsPastMidnight / SECONDS_IN_DAY) * 100
 
 function App() {
   return (

@@ -28,7 +28,7 @@
   left: 49%;
 }
 .outer-clock-face .marking.zero {
-  background: #1df52f;
+  background: #555555;
   width: 5px;
 }
 .outer-clock-face .marking.one {
@@ -42,8 +42,8 @@
   transform: rotate(60deg)
 }
 .outer-clock-face .marking.three {
-  background: #1df52f;
-  width: 3px;
+  background: #555555;
+  width: 5px;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   transform: rotate(90deg)
@@ -64,7 +64,6 @@
   top: 10%;
   left: 10%;
   width: 80%;
-  height: 80%;
   background: #FFFFFF;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
@@ -78,15 +77,12 @@
   position: relative;
   display: inline-grid;
   place-content: center;
-  margin: 5px;
   font-size: 25px;
   font-weight: bold;
   font-family: sans-serif;
 }
 
 .clock-block:before {
-  --b:10px;
-
   content: "";
   position: absolute;
   border-radius: 50%;

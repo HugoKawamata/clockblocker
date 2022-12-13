@@ -25,21 +25,19 @@ function Clock(props: Props) {
   }, [props.secondsPastMidnight, props.amOrPm])
 
   return (
-    <div id="main">
-      <div className="clock">
-        <div className="outer-clock-face">
-          <div className="marking zero"></div>
-          <div className="marking one"></div>
-          <div className="marking two"></div>
-          <div className="marking three"></div>
-          <div className="marking four"></div>
-          <div className="marking five"></div>
-          <div className="inner-clock-face">
-            <div
-              className={`clock-block ${props.amOrPm}`}
-              // style="--p:60;--b:10px;--c:purple;" 
-            >
-            </div>
+    <div className="clock">
+      <div className="outer-clock-face">
+        <div className="marking zero"></div>
+        <div className="marking one"></div>
+        <div className="marking two"></div>
+        <div className="marking three"></div>
+        <div className="marking four"></div>
+        <div className="marking five"></div>
+        <div className="inner-clock-face">
+          <div
+            className={`clock-block ${props.amOrPm}`}
+            // style="--p:60;--b:10px;--c:purple;" 
+          >
           </div>
         </div>
       </div>
