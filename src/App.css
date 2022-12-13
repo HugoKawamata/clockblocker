@@ -71,3 +71,27 @@
   border-radius: 100%;
   z-index: 1;
 }
+
+.clock-block {
+  width: 100%;
+  aspect-ratio: 1;
+  position: relative;
+  display: inline-grid;
+  place-content: center;
+  margin: 5px;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.clock-block:before {
+  /* --progress:60; */
+  --b:10px;
+  --c:purple;
+
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 0;
+  background: conic-gradient(var(--c) calc(var(--progress)*1%),#0000 0);
+}
