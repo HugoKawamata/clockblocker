@@ -34,6 +34,7 @@ function Clock(props: Props) {
         <div className="marking four"></div>
         <div className="marking five"></div>
         <div className="inner-clock-face">
+          {/* TODO: Make it take an array of "clock blocks" of different colours */}
           <div
             className={`clock-block ${props.amOrPm}`}
             // style="--p:60;--b:10px;--c:purple;" 
