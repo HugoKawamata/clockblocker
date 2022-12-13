@@ -85,13 +85,11 @@
 }
 
 .clock-block:before {
-  /* --progress:60; */
   --b:10px;
-  --c:purple;
 
   content: "";
   position: absolute;
   border-radius: 50%;
   inset: 0;
-  background: conic-gradient(var(--c) calc(var(--progress)*1%),#0000 0);
+  background: conic-gradient(#0000 calc(var(--progress)*1%), red 0%);
 }
