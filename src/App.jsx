@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react"
-import "./App.css"
 import { DateTime } from "luxon"
+import "./App.css"
 import Clock from "./components/Clock"
+import { blockInAm, blockInPm } from "./helpers"
+// import type { Block } from "./types"
 
 
 function App() {
   const [time, setTime] = useState(DateTime.now());
+  const [blocks, setBlocks] = useState([])
 
   useEffect(() => {
     const interval = setInterval(() => setTime(DateTime.now()), 10000);
@@ -18,8 +21,16 @@ function App() {
 
   return (
     <div id="main">
-      <Clock amOrPm="am" secondsPastMidnight={secondsPastMidnight} />
-      <Clock amOrPm="pm" secondsPastMidnight={secondsPastMidnight} />
+      <Clock
+        amOrPm="am"
+        blocks={blocks.filter((block) => blockInAm(block))}
+        secondsPastMidnight={secondsPastMidnight}
+      />
+      <Clock
+        amOrPm="pm"
+        blocks={blocks.filter((block) => blockInPm(block))}
+        secondsPastMidnight={secondsPastMidnight}
+      />
     </div>
   );
 }

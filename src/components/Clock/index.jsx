@@ -1,6 +1,8 @@
 import { useEffect } from "react"
 import './styles.css';
 // import { DateTime } from "luxon";
+import * as Types from "../../types"
+import Block from "../Block"
 
 const SECONDS_IN_DAY = 86400
 const SECONDS_IN_12_HOURS = SECONDS_IN_DAY / 2
@@ -8,6 +10,7 @@ const SECONDS_IN_12_HOURS = SECONDS_IN_DAY / 2
 
 type Props = {|
   amOrPm: "am" | "pm",
+  block: Types.Block,
   secondsPastMidnight: number,
 |}
 
@@ -35,11 +38,10 @@ function Clock(props: Props) {
         <div className="marking five"></div>
         <div className="inner-clock-face">
           {/* TODO: Make it take an array of "clock blocks" of different colours */}
-          <div
-            className={`clock-block ${props.amOrPm}`}
-            // style="--p:60;--b:10px;--c:purple;" 
-          >
-          </div>
+          <div className={`clock-block mask ${props.amOrPm}`} />
+          {
+            props.blocks.map((block: Types.Block) => (<Block block={block} />))
+          }
         </div>
       </div>
     </div>

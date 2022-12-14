@@ -61,7 +61,7 @@
   top: 10%;
   left: 10%;
   width: 80%;
-  background: #FFFFFF;
+  background: #FF0000;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
@@ -86,10 +86,10 @@
   inset: 0;
 }
 
-.clock-block.am:before {
-  background: conic-gradient(#0000 calc(var(--am-progress)*1%), red 0%);
+.clock-block.mask.am:before {
+  background: conic-gradient(#FFF calc(var(--am-progress)*1%), #0000 0%);
 }
 
-.clock-block.pm:before {
-  background: conic-gradient(#0000 calc(var(--pm-progress)*1%), red 0%);
+.clock-block.mask.pm:before {
+  background: conic-gradient(#FFF calc(var(--pm-progress)*1%), #0000 0%);
 }
