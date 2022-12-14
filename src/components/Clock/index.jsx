@@ -2,11 +2,8 @@ import { useEffect } from "react"
 import './styles.css';
 // import { DateTime } from "luxon";
 import * as Types from "../../types"
+import { SECONDS_IN_12_HOURS } from "../../constants"
 import Block from "../Block"
-
-const SECONDS_IN_DAY = 86400
-const SECONDS_IN_12_HOURS = SECONDS_IN_DAY / 2
-
 
 type Props = {|
   amOrPm: "am" | "pm",
@@ -21,8 +18,6 @@ function Clock(props: Props) {
       0
     )
     const dayPercentComplete = (secondsElapsed / SECONDS_IN_12_HOURS) * 100
-
-    console.log(props.amOrPm, secondsElapsed, dayPercentComplete)
 
     document.documentElement.style.setProperty(`--${props.amOrPm}-progress`, dayPercentComplete)
   }, [props.secondsPastMidnight, props.amOrPm])
@@ -40,7 +35,7 @@ function Clock(props: Props) {
           {/* TODO: Make it take an array of "clock blocks" of different colours */}
           <div className={`clock-block-mask ${props.amOrPm}`}>
             {
-              props.blocks.map((block: Types.Block) => (<Block block={block} />))
+              props.blocks.map((block: Types.Block) => (<Block block={block} amOrPm={props.amOrPm} />))
             }
           </div>
         </div>

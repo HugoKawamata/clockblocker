@@ -2,12 +2,12 @@ import { useState, useEffect } from "react"
 import { DateTime } from "luxon"
 import "./App.css"
 import Clock from "./components/Clock"
-import { blockInAm, blockInPm } from "./helpers"
+import { blockInAm, blockInPm, timeToSecondsPastMidnight } from "./helpers"
 // import type { Block } from "./types"
 
 const dummyBlock = {
-  start: { hour: 20, minute: 0 },
-  finish: { hour: 20, minute: 30}
+  start: { hour: 21, minute: 0 },
+  finish: { hour: 22, minute: 30}
 }
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
     };
   }, []);
 
-  const secondsPastMidnight = time.toSeconds() - time.startOf("day").toSeconds()
+  const secondsPastMidnight = timeToSecondsPastMidnight(time)
 
   return (
     <div id="main">
