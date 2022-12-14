@@ -7,15 +7,13 @@ type Props = {|
 |}
 
 const getInnerStyle = (block: Types.Block) => ({
-  background: "conic-gradient(#0000 0%, #FF0 calc(80*1%), #FF0 calc(90*1%), #0000 0%)"
+  background: "conic-gradient(#0000 calc(80*1%), #FF0 calc(80*1%), #FF0 calc(90*1%), #0000 0%)"
 })
 
 function Block(props: Props) {
   const innerStyle = getInnerStyle(props.block)
   return (
-    <div className="clock-block">
-      <div className="clock-block-inner" style={innerStyle}/>
-    </div>
+    <div className="clock-block-inner" style={innerStyle}/>
   );
 }
 

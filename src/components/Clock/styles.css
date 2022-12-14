@@ -68,7 +68,7 @@
   z-index: 1;
 }
 
-.clock-block {
+.clock-block-mask {
   width: 100%;
   aspect-ratio: 1;
   position: relative;
@@ -79,17 +79,17 @@
   font-family: sans-serif;
 }
 
-.clock-block:before {
+.clock-block-mask:after {
   content: "";
   position: absolute;
   border-radius: 50%;
   inset: 0;
 }
 
-.clock-block.mask.am:before {
+.clock-block-mask.am:after {
   background: conic-gradient(#FFF calc(var(--am-progress)*1%), #0000 0%);
 }
 
-.clock-block.mask.pm:before {
+.clock-block-mask.pm:after {
   background: conic-gradient(#FFF calc(var(--pm-progress)*1%), #0000 0%);
 }

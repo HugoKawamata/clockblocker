@@ -5,10 +5,14 @@ import Clock from "./components/Clock"
 import { blockInAm, blockInPm } from "./helpers"
 // import type { Block } from "./types"
 
+const dummyBlock = {
+  start: { hour: 20, minute: 0 },
+  finish: { hour: 20, minute: 30}
+}
 
 function App() {
   const [time, setTime] = useState(DateTime.now());
-  const [blocks, setBlocks] = useState([])
+  const [blocks, setBlocks] = useState([dummyBlock])
 
   useEffect(() => {
     const interval = setInterval(() => setTime(DateTime.now()), 10000);
