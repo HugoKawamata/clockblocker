@@ -1,23 +1,12 @@
 import { DateTime } from "luxon"
 import "./styles.css"
 import * as Types from "../../types"
+import LegendRow from "./LegendRow"
 
 type Props = {|
   blocks: Types.Block[],
   setBlocks: (blocks: Types.Block[]) => void,
 |}
-
-function LegendRow(props) {
-  return (
-    <div className="legend-row">
-      <span className="color-square" style={{ backgroundColor: props.block.color }} />
-      <span className="inline-text">{props.block.name}</span>
-      <span className="inline-text">{DateTime.now().set(props.block.start).toFormat("HH:mm")}</span>
-      <span className="inline-text">-</span>
-      <span className="inline-text">{DateTime.now().set(props.block.finish).toFormat("HH:mm")}</span>
-    </div>
-  )
-}
 
 function Legend(props: Props) {
   return (
