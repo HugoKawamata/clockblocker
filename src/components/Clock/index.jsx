@@ -1,26 +1,22 @@
 import { useEffect } from "react"
 import './styles.css';
-// import { DateTime } from "luxon";
+import { DateTime } from "luxon";
 import * as Types from "../../types"
-import { SECONDS_IN_12_HOURS } from "../../constants"
+import { timeToClockPercentage } from "../../helpers"
 import Block from "../Block"
 
 type Props = {|
   amOrPm: "am" | "pm",
   block: Types.Block,
-  secondsPastMidnight: number,
+  currentTime: DateTime,
 |}
 
 function Clock(props: Props) {
   useEffect(() => {
-    const secondsElapsed = Math.max(
-      props.secondsPastMidnight - (props.amOrPm === "pm" ? SECONDS_IN_12_HOURS : 0),
-      0
-    )
-    const dayPercentComplete = (secondsElapsed / SECONDS_IN_12_HOURS) * 100
+    const dayPercentComplete = timeToClockPercentage(props.currentTime, props.amOrPm)
 
     document.documentElement.style.setProperty(`--${props.amOrPm}-progress`, dayPercentComplete)
-  }, [props.secondsPastMidnight, props.amOrPm])
+  }, [props.currentTime, props.amOrPm])
 
   return (
     <div className="clock">

@@ -21,19 +21,17 @@ function App() {
     };
   }, []);
 
-  const secondsPastMidnight = timeToSecondsPastMidnight(time)
-
   return (
     <div id="main">
       <Clock
         amOrPm="am"
         blocks={blocks.filter((block) => blockInAm(block))}
-        secondsPastMidnight={secondsPastMidnight}
+        currentTime={time}
       />
       <Clock
         amOrPm="pm"
         blocks={blocks.filter((block) => blockInPm(block))}
-        secondsPastMidnight={secondsPastMidnight}
+        currentTime={time}
       />
     </div>
   );
