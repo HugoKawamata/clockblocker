@@ -24,16 +24,18 @@ function App() {
 
   return (
     <div id="main">
-      <Clock
-        amOrPm="am"
-        blocks={blocks.filter((block) => blockInAm(block))}
-        currentTime={time}
-      />
-      <Clock
-        amOrPm="pm"
-        blocks={blocks.filter((block) => blockInPm(block))}
-        currentTime={time}
-      />
+      <section className="clocks">
+        <Clock
+          amOrPm="am"
+          blocks={blocks.filter((block) => blockInAm(block))}
+          currentTime={time}
+        />
+        <Clock
+          amOrPm="pm"
+          blocks={blocks.filter((block) => blockInPm(block))}
+          currentTime={time}
+        />
+      </section>
       <Form blocks={blocks} setBlocks={setBlocks} />
     </div>
   );

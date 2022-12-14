@@ -1,3 +1,9 @@
+.clock-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
 .clock {
   min-width: 30rem;
   min-height: 30rem;

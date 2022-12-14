@@ -35,7 +35,8 @@ function Form(props: Props) {
   }
 
   return (
-    <section>
+    <section className="form">
+      <h2>Add new block</h2>
       <div className="inputWrapper">
         <label htmlFor="startTimeInput">Start Time (HH:MM)</label>
         <input id="startTimeInput" onBlur={handleBlur(setStartTimeText)} />

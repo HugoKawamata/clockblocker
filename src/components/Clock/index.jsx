@@ -19,19 +19,22 @@ function Clock(props: Props) {
   }, [props.currentTime, props.amOrPm])
 
   return (
-    <div className="clock">
-      <div className="outer-clock-face">
-        <div className="marking zero"></div>
-        <div className="marking one"></div>
-        <div className="marking two"></div>
-        <div className="marking three"></div>
-        <div className="marking four"></div>
-        <div className="marking five"></div>
-        <div className="inner-clock-face">
-          <div className={`clock-block-mask ${props.amOrPm}`}>
-            {
-              props.blocks.map((block: Types.Block) => (<Block block={block} amOrPm={props.amOrPm} />))
-            }
+    <div className="clock-wrapper">
+      <h1>{props.amOrPm}</h1>
+      <div className="clock">
+        <div className="outer-clock-face">
+          <div className="marking zero"></div>
+          <div className="marking one"></div>
+          <div className="marking two"></div>
+          <div className="marking three"></div>
+          <div className="marking four"></div>
+          <div className="marking five"></div>
+          <div className="inner-clock-face">
+            <div className={`clock-block-mask ${props.amOrPm}`}>
+              {
+                props.blocks.map((block: Types.Block) => (<Block block={block} amOrPm={props.amOrPm} />))
+              }
+            </div>
           </div>
         </div>
       </div>
