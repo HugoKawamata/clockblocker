@@ -2,7 +2,8 @@ import { useState, useEffect } from "react"
 import { DateTime } from "luxon"
 import "./App.css"
 import Clock from "./components/Clock"
-import { blockInAm, blockInPm, timeToSecondsPastMidnight } from "./helpers"
+import Form from "./components/Form"
+import { blockInAm, blockInPm } from "./helpers"
 // import type { Block } from "./types"
 
 const dummyBlock = {
@@ -33,6 +34,7 @@ function App() {
         blocks={blocks.filter((block) => blockInPm(block))}
         currentTime={time}
       />
+      <Form blocks={blocks} setBlocks={setBlocks} />
     </div>
   );
 }

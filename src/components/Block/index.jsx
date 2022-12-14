@@ -14,7 +14,6 @@ function Block(props: Props) {
     const finishTime = DateTime.now().set(props.block.finish)
     const startPercentage = timeToClockPercentage(startTime, props.amOrPm)
     const finishPercentage = timeToClockPercentage(finishTime, props.amOrPm)
-    console.log(startPercentage, finishPercentage)
     
     return ({
       background: `conic-gradient(#0000 calc(${startPercentage}*1%), #FF0 calc(${startPercentage}*1%), #FF0 calc(${finishPercentage}*1%), #0000 0%)`

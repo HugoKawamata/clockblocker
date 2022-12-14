@@ -12,6 +12,5 @@ export const timeToClockPercentage = (time: DateTime, amOrPm: "am" | "pm") => {
     secondsPastMidnight - (amOrPm === "pm" ? SECONDS_IN_12_HOURS : 0),
     0
   )
-  console.log(secondsPastMidnight, adjustedSeconds, amOrPm)
   return (adjustedSeconds / SECONDS_IN_12_HOURS) * 100
 }
