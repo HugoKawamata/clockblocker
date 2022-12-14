@@ -16,7 +16,7 @@ function Block(props: Props) {
     const finishPercentage = timeToClockPercentage(finishTime, props.amOrPm)
     
     return ({
-      background: `conic-gradient(#0000 calc(${startPercentage}*1%), #FF0 calc(${startPercentage}*1%), #FF0 calc(${finishPercentage}*1%), #0000 0%)`
+      background: `conic-gradient(#0000 calc(${startPercentage}*1%), ${props.block.color} calc(${startPercentage}*1%), ${props.block.color} calc(${finishPercentage}*1%), #0000 0%)`
     })
   }
 

@@ -13,7 +13,7 @@ const dummyBlock = {
 
 function App() {
   const [time, setTime] = useState(DateTime.now());
-  const [blocks, setBlocks] = useState([dummyBlock])
+  const [blocks, setBlocks] = useState([])
 
   useEffect(() => {
     const interval = setInterval(() => setTime(DateTime.now()), 10000);

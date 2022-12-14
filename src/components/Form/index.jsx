@@ -1,5 +1,5 @@
 import { useState } from "react"
-// import './styles.css';
+import './styles.css';
 import { DateTime } from "luxon";
 import * as Types from "../../types"
 
@@ -11,6 +11,7 @@ type Props = {|
 function Form(props: Props) {
   const [startTimeText, setStartTimeText] = useState("")
   const [finishTimeText, setFinishTimeText] = useState("")
+  const [color, setColor] = useState("")
 
   const handleBlur = (setFn) => {
     return (event) => setFn(event.target.value)
@@ -21,7 +22,7 @@ function Form(props: Props) {
     const finishTime = DateTime.fromFormat(finishTimeText, "HH:mm")
 
     return {
-      color: "#0000FF",
+      color,
       start: { hour: startTime.hour, minute: startTime.minute },
       finish: { hour: finishTime.hour, minute: finishTime.minute }
     }
@@ -35,8 +36,21 @@ function Form(props: Props) {
 
   return (
     <section>
-      <input onBlur={handleBlur(setStartTimeText)} />
-      <input onBlur={handleBlur(setFinishTimeText)} />
+      <div className="inputWrapper">
+        <label htmlFor="startTimeInput">Start Time (HH:MM)</label>
+        <input id="startTimeInput" onBlur={handleBlur(setStartTimeText)} />
+      </div>
+      
+      <div className="inputWrapper">
+        <label htmlFor="finishTimeInput">Finish Time (HH:MM)</label>
+        <input id="finishTimeInput" onBlur={handleBlur(setFinishTimeText)} />
+      </div>
+
+      <div className="inputWrapper">
+        <label htmlFor="colorInput">Colour</label>
+        <input id="colorInput" onBlur={handleBlur(setColor)} />
+      </div>
+
       <button onClick={createNewBlock}>Create Block</button>
     </section>
   )

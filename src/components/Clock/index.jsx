@@ -28,7 +28,6 @@ function Clock(props: Props) {
         <div className="marking four"></div>
         <div className="marking five"></div>
         <div className="inner-clock-face">
-          {/* TODO: Make it take an array of "clock blocks" of different colours */}
           <div className={`clock-block-mask ${props.amOrPm}`}>
             {
               props.blocks.map((block: Types.Block) => (<Block block={block} amOrPm={props.amOrPm} />))
