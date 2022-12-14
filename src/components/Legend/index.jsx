@@ -1,3 +1,4 @@
+import _ from "lodash"
 import { DateTime } from "luxon"
 import "./styles.css"
 import * as Types from "../../types"
@@ -15,7 +16,12 @@ function Legend(props: Props) {
       {
         props.blocks
           .sort((a, b) => DateTime.now().set(a.start).toSeconds() - DateTime.now().set(b.start).toSeconds())
-          .map((block) => (<LegendRow block={block} />))
+          .map((block) => (
+            <LegendRow
+              block={block}
+              deleteBlock={() => props.setBlocks(props.blocks.filter((arrBlock) => !_.isEqual(arrBlock, block)))}
+            />
+          ))
       }
     </div>
   );

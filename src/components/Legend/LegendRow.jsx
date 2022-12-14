@@ -4,6 +4,7 @@ import "../../types"
 
 type Props = {|
   block: Types.Block,
+  deleteBlock: () => void
 |}
 
 type Status = "upcoming" | "current" | "past"
@@ -22,6 +23,7 @@ function LegendRow(props: Props) {
       <span className="inline-text">{DateTime.now().set(props.block.start).toFormat("HH:mm")}</span>
       <span className="inline-text">-</span>
       <span className="inline-text">{DateTime.now().set(props.block.finish).toFormat("HH:mm")}</span>
+      <button onClick={props.deleteBlock}>X</button>
     </div>
   )
 }
