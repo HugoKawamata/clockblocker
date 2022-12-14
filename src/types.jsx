@@ -4,7 +4,8 @@ export type ClockPosition = {
 }
 
 export type Block = {|
-  start: ClockPosition,
-  finish: ClockPosition,
   color: string,
+  finish: ClockPosition,
+  name: string,
+  start: ClockPosition,
 |}

@@ -7,3 +7,16 @@
 .clocks {
   display: flex;
 }
+
+.blocks {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 100%;
+}
+
+.blocks > div {
+  width: 30%;
+}

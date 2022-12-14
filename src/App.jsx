@@ -3,6 +3,7 @@ import { DateTime } from "luxon"
 import "./App.css"
 import Clock from "./components/Clock"
 import Form from "./components/Form"
+import Legend from "./components/Legend"
 import { blockInAm, blockInPm } from "./helpers"
 // import type { Block } from "./types"
 
@@ -36,7 +37,10 @@ function App() {
           currentTime={time}
         />
       </section>
-      <Form blocks={blocks} setBlocks={setBlocks} />
+      <section className="blocks">
+        <Form blocks={blocks} setBlocks={setBlocks} />
+        <Legend blocks={blocks} setBlocks={setBlocks} />
+      </section>
     </div>
   );
 }
