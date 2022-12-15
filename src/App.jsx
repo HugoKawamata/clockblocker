@@ -7,12 +7,6 @@ import Clock from "./components/Clock"
 import Form from "./components/Form"
 import Legend from "./components/Legend"
 import { blockInAm, blockInPm } from "./helpers"
-// import type { Block } from "./types"
-
-const dummyBlock = {
-  start: { hour: 21, minute: 0 },
-  finish: { hour: 22, minute: 30 },
-}
 
 function App() {
   const [time, setTime] = useState(DateTime.now())
