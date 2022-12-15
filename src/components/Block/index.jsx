@@ -1,12 +1,13 @@
-import './styles.css';
-import { DateTime } from "luxon";
+import React from "react"
+import "./styles.css"
+import { DateTime } from "luxon"
 import { timeToClockPercentage } from "../../helpers"
 import * as Types from "../../types"
 
-type Props = {|
+type Props = {
   amOrPm: "am" | "pm",
   block: Types.Block,
-|}
+};
 
 function Block(props: Props) {
   const getInnerStyle = () => {
@@ -14,16 +15,14 @@ function Block(props: Props) {
     const finishTime = DateTime.now().set(props.block.finish)
     const startPercentage = timeToClockPercentage(startTime, props.amOrPm)
     const finishPercentage = timeToClockPercentage(finishTime, props.amOrPm)
-    
-    return ({
-      background: `conic-gradient(#0000 calc(${startPercentage}*1%), ${props.block.color} calc(${startPercentage}*1%), ${props.block.color} calc(${finishPercentage}*1%), #0000 0%)`
-    })
+
+    return {
+      background: `conic-gradient(#0000 calc(${startPercentage}*1%), ${props.block.color} calc(${startPercentage}*1%), ${props.block.color} calc(${finishPercentage}*1%), #0000 0%)`,
+    }
   }
 
   const innerStyle = getInnerStyle(props.block)
-  return (
-    <div className="clock-block-inner" style={innerStyle}/>
-  );
+  return <div className="clock-block-inner" style={innerStyle} />
 }
 
-export default Block;
+export default Block

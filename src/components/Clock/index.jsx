@@ -1,21 +1,27 @@
-import { useEffect } from "react"
-import './styles.css';
-import { DateTime } from "luxon";
+import React, { useEffect } from "react"
+import "./styles.css"
+import { DateTime } from "luxon"
 import * as Types from "../../types"
 import { timeToClockPercentage } from "../../helpers"
 import Block from "../Block"
 
-type Props = {|
+type Props = {
   amOrPm: "am" | "pm",
-  block: Types.Block,
+  blocks: Types.Block,
   currentTime: DateTime,
-|}
+};
 
 function Clock(props: Props) {
   useEffect(() => {
-    const dayPercentComplete = timeToClockPercentage(props.currentTime, props.amOrPm)
+    const dayPercentComplete = timeToClockPercentage(
+      props.currentTime,
+      props.amOrPm
+    )
 
-    document.documentElement.style.setProperty(`--${props.amOrPm}-progress`, dayPercentComplete)
+    document.documentElement.style.setProperty(
+      `--${props.amOrPm}-progress`,
+      dayPercentComplete
+    )
   }, [props.currentTime, props.amOrPm])
 
   return (
@@ -30,13 +36,15 @@ function Clock(props: Props) {
           <div className="marking four"></div>
           <div className="marking five"></div>
           <div className="inner-clock-face">
-            { props.blocks.map((block: Types.Block) => (<Block block={block} amOrPm={props.amOrPm} />)) }
+            {props.blocks.map((block: Types.Block) => (
+              <Block key={block.toString()} block={block} amOrPm={props.amOrPm} />
+            ))}
             <div className={`clock-block-mask ${props.amOrPm}`} />
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Clock;
+export default Clock

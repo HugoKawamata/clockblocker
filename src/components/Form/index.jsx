@@ -1,12 +1,12 @@
-import { useState } from "react"
-import './styles.css';
-import { DateTime } from "luxon";
+import React, { useState } from "react"
+import "./styles.css"
+import { DateTime } from "luxon"
 import * as Types from "../../types"
 
-type Props = {|
+type Props = {
   blocks: Types.Block[],
   setBlocks: (block: Types.Block[]) => void,
-|}
+};
 
 function Form(props: Props) {
   const [startTimeText, setStartTimeText] = useState("")
@@ -26,7 +26,7 @@ function Form(props: Props) {
       color,
       name,
       start: { hour: startTime.hour, minute: startTime.minute },
-      finish: { hour: finishTime.hour, minute: finishTime.minute }
+      finish: { hour: finishTime.hour, minute: finishTime.minute },
     }
   }
 
@@ -43,7 +43,7 @@ function Form(props: Props) {
         <label htmlFor="startTimeInput">Start Time (HH:MM)</label>
         <input id="startTimeInput" onBlur={handleBlur(setStartTimeText)} />
       </div>
-      
+
       <div className="inputWrapper">
         <label htmlFor="finishTimeInput">Finish Time (HH:MM)</label>
         <input id="finishTimeInput" onBlur={handleBlur(setFinishTimeText)} />
@@ -64,4 +64,4 @@ function Form(props: Props) {
   )
 }
 
-export default Form;
+export default Form
