@@ -3,17 +3,17 @@ import _ from "lodash"
 import { DateTime } from "luxon"
 import "./styles.css"
 import * as Types from "../../types"
-import LegendRow from "./LegendRow"
+import MyBlock from "./MyBlock"
 
 type Props = {
   blocks: Types.Block[],
   setBlocks: (blocks: Types.Block[]) => void,
 }
 
-function Legend(props: Props) {
+function MyBlocks(props: Props) {
   return (
-    <div className="legend">
-      <h2>Legend</h2>
+    <div className="my-blocks">
+      <h2>My blocks</h2>
       {props.blocks
         .sort(
           (a, b) =>
@@ -21,7 +21,7 @@ function Legend(props: Props) {
             DateTime.now().set(b.start).toSeconds()
         )
         .map((block) => (
-          <LegendRow
+          <MyBlock
             key={block.toString()}
             block={block}
             deleteBlock={() =>
@@ -35,4 +35,4 @@ function Legend(props: Props) {
   )
 }
 
-export default Legend
+export default MyBlocks

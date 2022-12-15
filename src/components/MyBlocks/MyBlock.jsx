@@ -10,7 +10,7 @@ type Props = {
 
 type Status = "" | "current" | "past"
 
-function LegendRow(props: Props) {
+function MyBlock(props: Props) {
   const isCurrent =
     DateTime.now() >= DateTime.now().set(props.block.start) &&
     DateTime.now() <= DateTime.now().set(props.block.finish)
@@ -23,7 +23,7 @@ function LegendRow(props: Props) {
   }
 
   return (
-    <div className={`legend-row ${status}`}>
+    <div className={`my-block ${status}`}>
       <span
         className="color-square"
         style={{ backgroundColor: props.block.color }}
@@ -41,4 +41,4 @@ function LegendRow(props: Props) {
   )
 }
 
-export default LegendRow
+export default MyBlock
