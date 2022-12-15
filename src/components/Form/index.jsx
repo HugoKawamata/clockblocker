@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import "./styles.css"
 import { DateTime } from "luxon"
+import { TimePicker } from "@mui/x-date-pickers/TimePicker"
+import TextField from "@mui/material/TextField"
 import * as Types from "../../types"
 
 type Props = {
@@ -9,8 +11,8 @@ type Props = {
 }
 
 function Form(props: Props) {
-  const [startTimeText, setStartTimeText] = useState("")
-  const [finishTimeText, setFinishTimeText] = useState("")
+  const [startTime, setStartTime] = useState(null)
+  const [finishTime, setFinishTime] = useState(null)
   const [color, setColor] = useState("")
   const [name, setName] = useState("")
 
@@ -19,9 +21,6 @@ function Form(props: Props) {
   }
 
   const newBlock = () => {
-    const startTime = DateTime.fromFormat(startTimeText, "HH:mm")
-    const finishTime = DateTime.fromFormat(finishTimeText, "HH:mm")
-
     return {
       color,
       name,
@@ -40,13 +39,25 @@ function Form(props: Props) {
     <div className="form">
       <h2>Add new block</h2>
       <div className="inputWrapper">
-        <label htmlFor="startTimeInput">Start Time (HH:MM)</label>
-        <input id="startTimeInput" onBlur={handleBlur(setStartTimeText)} />
+        <TimePicker
+          label="Start time"
+          value={startTime}
+          onChange={(newValue) => {
+            setStartTime(newValue)
+          }}
+          renderInput={(params) => <TextField {...params} />}
+        />
       </div>
 
       <div className="inputWrapper">
-        <label htmlFor="finishTimeInput">Finish Time (HH:MM)</label>
-        <input id="finishTimeInput" onBlur={handleBlur(setFinishTimeText)} />
+        <TimePicker
+          label="Finish time"
+          value={finishTime}
+          onChange={(newValue) => {
+            setFinishTime(newValue)
+          }}
+          renderInput={(params) => <TextField {...params} />}
+        />
       </div>
 
       <div className="inputWrapper">
