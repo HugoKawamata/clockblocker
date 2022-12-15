@@ -3,9 +3,9 @@ export type ClockPosition = {
   minute: number,
 }
 
-export type Block = {|
+export type Block = {
   color: string,
   finish: ClockPosition,
   name: string,
   start: ClockPosition,
-|}
+}

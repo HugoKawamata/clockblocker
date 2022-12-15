@@ -19,10 +19,9 @@
   border-radius: 100%;
 }
 
-
 .outer-clock-face::after,
 .outer-clock-face::before,
-.outer-clock-face .marking{
+.outer-clock-face .marking {
   position: absolute;
   background: #bdbdcb;
   width: 3px;
@@ -37,29 +36,29 @@
 .outer-clock-face .marking.one {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
-  transform: rotate(30deg)
+  transform: rotate(30deg);
 }
 .outer-clock-face .marking.two {
   -webkit-transform: rotate(60deg);
   -moz-transform: rotate(60deg);
-  transform: rotate(60deg)
+  transform: rotate(60deg);
 }
 .outer-clock-face .marking.three {
   background: #555555;
   width: 5px;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
-  transform: rotate(90deg)
+  transform: rotate(90deg);
 }
 .outer-clock-face .marking.four {
   -webkit-transform: rotate(120deg);
   -moz-transform: rotate(120deg);
-  transform: rotate(120deg)
+  transform: rotate(120deg);
 }
 .outer-clock-face .marking.five {
   -webkit-transform: rotate(150deg);
   -moz-transform: rotate(150deg);
-  transform: rotate(150deg)
+  transform: rotate(150deg);
 }
 
 .inner-clock-face {
@@ -68,9 +67,9 @@
   left: 10%;
   width: 80%;
   height: 80%;
-  border-color: #FFFFFF;
+  border-color: #ffffff;
   border-width: 2px;
-  background: #FF0000;
+  background: #ff0000;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
@@ -98,9 +97,9 @@
 }
 
 .clock-block-mask.am:after {
-  background: conic-gradient(#FFF calc(var(--am-progress)*1%), #0000 0%);
+  background: conic-gradient(#fff calc(var(--am-progress) * 1%), #0000 0%);
 }
 
 .clock-block-mask.pm:after {
-  background: conic-gradient(#FFF calc(var(--pm-progress)*1%), #0000 0%);
+  background: conic-gradient(#fff calc(var(--pm-progress) * 1%), #0000 0%);
 }

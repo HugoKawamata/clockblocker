@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { DateTime } from "luxon"
 import "./App.css"
 import Clock from "./components/Clock"
@@ -9,19 +9,19 @@ import { blockInAm, blockInPm } from "./helpers"
 
 const dummyBlock = {
   start: { hour: 21, minute: 0 },
-  finish: { hour: 22, minute: 30}
+  finish: { hour: 22, minute: 30 },
 }
 
 function App() {
-  const [time, setTime] = useState(DateTime.now());
+  const [time, setTime] = useState(DateTime.now())
   const [blocks, setBlocks] = useState([])
 
   useEffect(() => {
-    const interval = setInterval(() => setTime(DateTime.now()), 10000);
+    const interval = setInterval(() => setTime(DateTime.now()), 10000)
     return () => {
-      clearInterval(interval);
-    };
-  }, []);
+      clearInterval(interval)
+    }
+  }, [])
 
   return (
     <div id="main">
@@ -42,7 +42,7 @@ function App() {
         <Legend blocks={blocks} setBlocks={setBlocks} />
       </section>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
