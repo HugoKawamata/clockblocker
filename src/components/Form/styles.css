@@ -2,8 +2,30 @@
   width: 30%;
 }
 
-.inputWrapper {
+.input-wrapper {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+}
+
+.color-picker {
+  display: flex;
+}
+
+.color-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.color-button {
+  border-width: 0;
+  border-radius: 3px;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.2rem;
+}
+
+.color-button.selected {
+  border-width: 0.2rem;
+  border-color: #000000;
 }

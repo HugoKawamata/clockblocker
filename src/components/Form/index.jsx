@@ -3,6 +3,7 @@ import "./styles.css"
 import { TimePicker } from "@mui/x-date-pickers/TimePicker"
 import TextField from "@mui/material/TextField"
 import { DateTime } from "luxon"
+import ColorPicker from "./ColorPicker"
 import * as Types from "../../types"
 
 type Props = {
@@ -15,10 +16,6 @@ function Form(props: Props) {
   const [finishTime, setFinishTime] = useState(null)
   const [color, setColor] = useState("")
   const [name, setName] = useState("")
-
-  const handleBlur = (setFn) => {
-    return (event) => setFn(event.target.value)
-  }
 
   const newBlock = () => {
     return {
@@ -38,7 +35,7 @@ function Form(props: Props) {
   return (
     <div className="form">
       <h2>Add new block</h2>
-      <div className="inputWrapper">
+      <div className="input-wrapper">
         <TimePicker
           label="Start time"
           value={startTime}
@@ -49,7 +46,7 @@ function Form(props: Props) {
         />
       </div>
 
-      <div className="inputWrapper">
+      <div className="input-wrapper">
         <TimePicker
           label="Finish time"
           value={finishTime}
@@ -60,7 +57,7 @@ function Form(props: Props) {
         />
       </div>
 
-      <div className="inputWrapper">
+      <div className="input-wrapper">
         <TextField
           label="Name"
           value={name}
@@ -70,10 +67,7 @@ function Form(props: Props) {
         />
       </div>
 
-      <div className="inputWrapper">
-        <label htmlFor="colorInput">Colour</label>
-        <input id="colorInput" onBlur={handleBlur(setColor)} />
-      </div>
+      <ColorPicker color={color} setColor={setColor} />
 
       <button onClick={createNewBlock}>Create Block</button>
     </div>
