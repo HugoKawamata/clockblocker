@@ -5,7 +5,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import "./App.css"
 import Clock from "./components/Clock"
 import Form from "./components/Form"
-import Legend from "./components/Legend"
+import MyBlocks from "./components/MyBlocks"
 import { blockInAm, blockInPm } from "./helpers"
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
         </section>
         <section className="blocks">
           <Form blocks={blocks} setBlocks={setBlocks} />
-          <Legend blocks={blocks} setBlocks={setBlocks} />
+          <MyBlocks blocks={blocks} setBlocks={setBlocks} />
         </section>
       </div>
     </LocalizationProvider>

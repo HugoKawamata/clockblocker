@@ -1,21 +1,21 @@
-.legend {
+.my-blocks {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.legend-row {
+.my-block {
   padding-left: 0.5rem;
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
 }
 
-.legend-row.past {
+.my-block.past {
   text-decoration: line-through;
   color: #999999;
 }
 
-.legend-row.current {
+.my-block.current {
   background-color: #ffe97a;
 }
 
@@ -30,4 +30,8 @@
 
 .inline-text {
   margin-right: 0.5rem;
+}
+
+.empty-state-text {
+  color: #999999;
 }
