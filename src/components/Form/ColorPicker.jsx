@@ -12,19 +12,16 @@ function ColorPicker(props: Props) {
     <div className="color-picker">
       {Object.keys(COLORS).map((colorKey) => (
         <div key={colorKey} className="color-column">
-          {Object.values(COLORS[colorKey]).map(
-            (color) =>
-              console.log(props.color, color) || (
-                <button
-                  key={color}
-                  className={`color-button ${
-                    color === props.color ? "selected" : ""
-                  }`}
-                  style={{ backgroundColor: color }}
-                  onClick={() => props.setColor(color)}
-                />
-              )
-          )}
+          {Object.values(COLORS[colorKey]).map((color) => (
+            <button
+              key={color}
+              className={`color-button ${
+                color === props.color ? "selected" : ""
+              }`}
+              style={{ backgroundColor: color }}
+              onClick={() => props.setColor(color)}
+            />
+          ))}
         </div>
       ))}
     </div>

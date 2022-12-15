@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./styles.css"
 import { TimePicker } from "@mui/x-date-pickers/TimePicker"
 import TextField from "@mui/material/TextField"
+import Button from "@mui/material/Button"
 import { DateTime } from "luxon"
 import ColorPicker from "./ColorPicker"
 import * as Types from "../../types"
@@ -31,6 +32,13 @@ function Form(props: Props) {
 
     props.setBlocks(newArray)
   }
+
+  const canSubmit =
+    startTime != null &&
+    !startTime.invalid &&
+    finishTime != null &&
+    !finishTime.invalid &&
+    startTime < finishTime
 
   return (
     <div className="form">
@@ -69,7 +77,13 @@ function Form(props: Props) {
 
       <ColorPicker color={color} setColor={setColor} />
 
-      <button onClick={createNewBlock}>Create Block</button>
+      <Button
+        variant="contained"
+        onClick={createNewBlock}
+        disabled={!canSubmit}
+      >
+        Create Block
+      </Button>
     </div>
   )
 }
