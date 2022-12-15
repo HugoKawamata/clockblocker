@@ -18,7 +18,7 @@ function LegendRow(props: Props) {
     !isCurrent && DateTime.now() > DateTime.now().set(props.block.start)
 
   let status: ?Status = isCurrent ? "current" : ""
-  if (status == "") {
+  if (status === "") {
     status = isPast ? "past" : ""
   }
 
