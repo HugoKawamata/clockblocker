@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./styles.css"
 import { TimePicker } from "@mui/x-date-pickers/TimePicker"
 import TextField from "@mui/material/TextField"
+import { DateTime } from "luxon"
 import * as Types from "../../types"
 
 type Props = {
@@ -41,7 +42,7 @@ function Form(props: Props) {
         <TimePicker
           label="Start time"
           value={startTime}
-          onChange={(newValue) => {
+          onChange={(newValue: DateTime) => {
             setStartTime(newValue)
           }}
           renderInput={(params) => <TextField {...params} />}
@@ -52,7 +53,7 @@ function Form(props: Props) {
         <TimePicker
           label="Finish time"
           value={finishTime}
-          onChange={(newValue) => {
+          onChange={(newValue: DateTime) => {
             setFinishTime(newValue)
           }}
           renderInput={(params) => <TextField {...params} />}
