@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import "./styles.css"
-import { DateTime } from "luxon"
 import { TimePicker } from "@mui/x-date-pickers/TimePicker"
 import TextField from "@mui/material/TextField"
 import * as Types from "../../types"
@@ -61,13 +60,18 @@ function Form(props: Props) {
       </div>
 
       <div className="inputWrapper">
-        <label htmlFor="colorInput">Colour</label>
-        <input id="colorInput" onBlur={handleBlur(setColor)} />
+        <TextField
+          label="Name"
+          value={name}
+          onChange={(event) => {
+            setName(event.target.value)
+          }}
+        />
       </div>
 
       <div className="inputWrapper">
-        <label htmlFor="nameInput">Name</label>
-        <input id="nameInput" onBlur={handleBlur(setName)} />
+        <label htmlFor="colorInput">Colour</label>
+        <input id="colorInput" onBlur={handleBlur(setColor)} />
       </div>
 
       <button onClick={createNewBlock}>Create Block</button>
