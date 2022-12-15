@@ -14,6 +14,13 @@ function MyBlocks(props: Props) {
   return (
     <div className="my-blocks">
       <h2>My blocks</h2>
+      {props.blocks.length > 0 ? null : (
+        <div className="empty-state-text">
+          {
+            "You haven't added any blocks yet - use the form on the left to add a new block of time!"
+          }
+        </div>
+      )}
       {props.blocks
         .sort(
           (a, b) =>

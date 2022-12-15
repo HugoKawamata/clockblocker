@@ -31,3 +31,7 @@
 .inline-text {
   margin-right: 0.5rem;
 }
+
+.empty-state-text {
+  color: #999999;
+}
