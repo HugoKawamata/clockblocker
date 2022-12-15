@@ -6,7 +6,7 @@ import * as Types from "../../types"
 type Props = {
   blocks: Types.Block[],
   setBlocks: (block: Types.Block[]) => void,
-};
+}
 
 function Form(props: Props) {
   const [startTimeText, setStartTimeText] = useState("")

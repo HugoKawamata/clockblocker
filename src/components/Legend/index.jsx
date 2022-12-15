@@ -8,7 +8,7 @@ import LegendRow from "./LegendRow"
 type Props = {
   blocks: Types.Block[],
   setBlocks: (blocks: Types.Block[]) => void,
-};
+}
 
 function Legend(props: Props) {
   return (

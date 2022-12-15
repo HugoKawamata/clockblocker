@@ -7,7 +7,7 @@ import * as Types from "../../types"
 type Props = {
   amOrPm: "am" | "pm",
   block: Types.Block,
-};
+}
 
 function Block(props: Props) {
   const getInnerStyle = () => {

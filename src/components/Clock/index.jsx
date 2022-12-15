@@ -9,7 +9,7 @@ type Props = {
   amOrPm: "am" | "pm",
   blocks: Types.Block,
   currentTime: DateTime,
-};
+}
 
 function Clock(props: Props) {
   useEffect(() => {
@@ -37,7 +37,11 @@ function Clock(props: Props) {
           <div className="marking five"></div>
           <div className="inner-clock-face">
             {props.blocks.map((block: Types.Block) => (
-              <Block key={block.toString()} block={block} amOrPm={props.amOrPm} />
+              <Block
+                key={block.toString()}
+                block={block}
+                amOrPm={props.amOrPm}
+              />
             ))}
             <div className={`clock-block-mask ${props.amOrPm}`} />
           </div>

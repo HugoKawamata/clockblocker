@@ -6,9 +6,9 @@ import * as Types from "../../types"
 type Props = {
   block: Types.Block,
   deleteBlock: () => void,
-};
+}
 
-type Status = "upcoming" | "current" | "past";
+type Status = "upcoming" | "current" | "past"
 
 function LegendRow(props: Props) {
   const isCurrent =
