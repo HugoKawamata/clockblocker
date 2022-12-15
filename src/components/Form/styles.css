@@ -10,6 +10,7 @@
 
 .color-picker {
   display: flex;
+  margin-bottom: 2rem;
 }
 
 .color-column {
