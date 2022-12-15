@@ -6,6 +6,7 @@ import Button from "@mui/material/Button"
 import { DateTime } from "luxon"
 import ColorPicker from "./ColorPicker"
 import * as Types from "../../types"
+import { COLORS } from "../../constants"
 
 type Props = {
   blocks: Types.Block[],
@@ -15,7 +16,7 @@ type Props = {
 function Form(props: Props) {
   const [startTime, setStartTime] = useState(null)
   const [finishTime, setFinishTime] = useState(null)
-  const [color, setColor] = useState("")
+  const [color, setColor] = useState(COLORS.yellows.mid)
   const [name, setName] = useState("")
 
   const newBlock = () => {
