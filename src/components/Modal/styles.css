@@ -7,6 +7,7 @@
   background-color: #eeeeee;
 
   border-radius: 1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
   padding-top: 2rem;
   width: 800px;
   max-width: 100%;
