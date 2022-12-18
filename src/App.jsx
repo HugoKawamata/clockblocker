@@ -8,6 +8,7 @@ import readmePath from "./README.md"
 import "./App.css"
 import Clock from "./components/Clock"
 import Form from "./components/Form"
+import Modal from "./components/Modal"
 import MyBlocks from "./components/MyBlocks"
 import { blockInAm, blockInPm } from "./helpers"
 
@@ -23,8 +24,6 @@ function App() {
       .then((text) => setInfoModalText(text))
   }
 
-  console.log(infoModalText)
-
   useEffect(() => {
     const interval = setInterval(() => setTime(DateTime.now()), 10000)
     return () => {
@@ -35,7 +34,9 @@ function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterLuxon}>
       <div id="main">
-        <button onClick={() => setInfoModalOpen(true)}>ⓘ</button>
+        <button className="info-button" onClick={() => setInfoModalOpen(true)}>
+          ⓘ
+        </button>
         <section className="clocks">
           <Clock
             amOrPm="am"
@@ -53,9 +54,9 @@ function App() {
           <MyBlocks blocks={blocks} setBlocks={setBlocks} />
         </section>
       </div>
-      {/* <Modal open={infoModalOpen}> */}
-      <ReactMarkdown>{infoModalText}</ReactMarkdown>
-      {/* </Modal> */}
+      <Modal open={infoModalOpen} setModalOpen={setInfoModalOpen}>
+        <ReactMarkdown>{infoModalText}</ReactMarkdown>
+      </Modal>
     </LocalizationProvider>
   )
 }
