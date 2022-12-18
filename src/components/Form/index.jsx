@@ -68,12 +68,23 @@ function Form(props: Props) {
     props.setBlocks(newArray)
   }
 
-  const canSubmit =
-    startTime != null &&
-    !startTime.invalid &&
-    finishTime != null &&
-    !finishTime.invalid &&
-    startTime < finishTime
+  const canSubmit = timesAreValid && startTime < finishTime
+
+  const validationWarnings = () => {
+    const warnings = []
+    if (timesAreValid && startTime > finishTime) {
+      warnings.push([
+        <div key="finish-before-start" className="validation-warning">
+          Finish time must be after start time
+        </div>,
+      ])
+    }
+    return (
+      warnings.length > 0 && (
+        <div className="validation-warnings">{warnings}</div>
+      )
+    )
+  }
 
   return (
     <div className="form">
@@ -112,13 +123,16 @@ function Form(props: Props) {
 
       <ColorPicker color={color} setColor={setColor} />
 
-      <Button
-        variant="contained"
-        onClick={createNewBlock}
-        disabled={!canSubmit}
-      >
-        Create Block
-      </Button>
+      <div className="button-wrapper">
+        <Button
+          variant="contained"
+          onClick={createNewBlock}
+          disabled={!canSubmit}
+        >
+          Create Block
+        </Button>
+        {validationWarnings()}
+      </div>
     </div>
   )
 }

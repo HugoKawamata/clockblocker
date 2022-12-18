@@ -30,3 +30,18 @@
   border-width: 0.2rem;
   border-color: #000000;
 }
+
+.button-wrapper {
+  display: flex;
+}
+
+.validation-warnings {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+.validation-warning {
+  color: #FF5C67;
+}
