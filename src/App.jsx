@@ -18,6 +18,10 @@ function App() {
   const [time, setTime] = useState(DateTime.now())
   const [blocks, setBlocks] = useState([])
 
+  if (document.cookie !== "" && document.cookie !== JSON.stringify(blocks)) {
+    setBlocks(JSON.parse(document.cookie))
+  }
+
   if (infoModalText === "") {
     fetch(readmePath)
       .then((resp) => resp.text())
