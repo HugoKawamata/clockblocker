@@ -7,7 +7,7 @@ other visual clocks that are designed to help neurodivergent people make sense
 of passing time. Clockblocker builds on this idea by allowing you to plan an
 entire 24 hours worth of time at once.
 
-# What can I use it for?
+## What can I use it for?
 
 - Autistic, ADHD, and other neurodivergent people can use Clockblocker to
   visually represent the time left in their day and plan out personal time.
