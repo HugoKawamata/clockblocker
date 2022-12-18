@@ -7,6 +7,11 @@ other visual clocks that are designed to help neurodivergent people make sense
 of passing time. Clockblocker builds on this idea by allowing you to plan an
 entire 24 hours worth of time at once.
 
+- Two clocks represent the 12 hours each in AM and PM
+- As the time in the day passes, the "pie" gets smaller - this allows you to
+  see how much time you have left
+- Add "blocks" of time to the clocks to plan the rest of the day
+
 ## What can I use it for?
 
 - Autistic, ADHD, and other neurodivergent people can use Clockblocker to
