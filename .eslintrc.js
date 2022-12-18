@@ -10,7 +10,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "prettier",
   ],
-  ignorePatterns: ["*.css"],
+  ignorePatterns: ["*.css", "*.md"],
   overrides: [],
   parser: "@typescript-eslint/parser",
   parserOptions: {
