@@ -1,6 +1,7 @@
 import React from "react"
 import _ from "lodash"
 import { DateTime } from "luxon"
+import Button from "@mui/material/Button"
 import "./styles.css"
 import * as Types from "../../types"
 import MyBlock from "./MyBlock"
@@ -11,16 +12,16 @@ type Props = {
 }
 
 function MyBlocks(props: Props) {
-  return (
-    <div className="my-blocks">
-      <h2>My blocks</h2>
-      {props.blocks.length > 0 ? null : (
-        <div className="empty-state-text">
-          {
-            "You haven't added any blocks yet - use the form on the left to add a new block of time!"
-          }
-        </div>
-      )}
+  const emptyState = (
+    <div className="empty-state-text">
+      {
+        "You haven't added any blocks yet - use the form on the left to add a new block of time!"
+      }
+    </div>
+  )
+
+  const fullState = (
+    <>
       {props.blocks
         .sort(
           (a, b) =>
@@ -38,6 +39,22 @@ function MyBlocks(props: Props) {
             }
           />
         ))}
+      <div className="button-wrapper">
+        <Button
+          variant="outlined"
+          color="error"
+          onClick={() => props.setBlocks([])}
+        >
+          Delete all blocks
+        </Button>
+      </div>
+    </>
+  )
+
+  return (
+    <div className="my-blocks">
+      <h2>My blocks</h2>
+      {props.blocks.length > 0 ? fullState : emptyState}
     </div>
   )
 }

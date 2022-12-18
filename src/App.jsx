@@ -10,16 +10,21 @@ import Clock from "./components/Clock"
 import Form from "./components/Form"
 import Modal from "./components/Modal"
 import MyBlocks from "./components/MyBlocks"
+import * as Types from "./types"
 import { blockInAm, blockInPm } from "./helpers"
 
 function App() {
   const [infoModalOpen, setInfoModalOpen] = useState(false)
   const [infoModalText, setInfoModalText] = useState("")
   const [time, setTime] = useState(DateTime.now())
-  const [blocks, setBlocks] = useState([])
+  const [blocks, setBlocksRaw] = useState([])
+  const setBlocks = (blocks: Types.Blocks) => {
+    document.cookie = JSON.stringify(blocks)
+    return setBlocksRaw(blocks)
+  }
 
   if (document.cookie !== "" && document.cookie !== JSON.stringify(blocks)) {
-    setBlocks(JSON.parse(document.cookie))
+    setBlocksRaw(JSON.parse(document.cookie))
   }
 
   if (infoModalText === "") {

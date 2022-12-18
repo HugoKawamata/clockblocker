@@ -66,7 +66,6 @@ function Form(props: Props) {
     const newArray = props.blocks.concat([newBlock()])
 
     props.setBlocks(newArray)
-    document.cookie = JSON.stringify(newArray)
   }
 
   const canSubmit = timesAreValid && startTime < finishTime

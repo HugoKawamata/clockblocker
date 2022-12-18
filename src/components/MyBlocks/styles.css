@@ -35,3 +35,7 @@
 .empty-state-text {
   color: #999999;
 }
+
+.button-wrapper {
+  padding-top: 1rem;
+}
