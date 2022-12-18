@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./styles.css"
 import { TimePicker } from "@mui/x-date-pickers/TimePicker"
 import TextField from "@mui/material/TextField"
@@ -18,6 +18,40 @@ function Form(props: Props) {
   const [finishTime, setFinishTime] = useState(null)
   const [color, setColor] = useState(COLORS.yellows.mid)
   const [name, setName] = useState("")
+
+  const timesAreValid =
+    startTime != null &&
+    finishTime != null &&
+    !startTime.invalid &&
+    !finishTime.invalid
+
+  const finishIsMidnight = () =>
+    finishTime.hour === 0 && finishTime.minute === 0
+
+  const finishIsMidnightAndNeedsAdjusting =
+    timesAreValid &&
+    finishIsMidnight() &&
+    startTime > finishTime &&
+    startTime.toISODate() === finishTime.toISODate()
+
+  const finishIsNotMidnightAndNeedsAdjusting =
+    timesAreValid &&
+    !finishIsMidnight() &&
+    finishTime.toISODate() !== startTime.toISODate()
+
+  useEffect(() => {
+    if (finishIsMidnightAndNeedsAdjusting) {
+      setFinishTime(finishTime.plus({ days: 1 }))
+    } else if (finishIsNotMidnightAndNeedsAdjusting) {
+      setFinishTime(
+        finishTime.set({
+          year: startTime.year,
+          month: startTime.month,
+          day: startTime.day,
+        })
+      )
+    }
+  })
 
   const newBlock = () => {
     return {
