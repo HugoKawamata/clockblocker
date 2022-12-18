@@ -1,0 +1,53 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: #eeeeee;
+
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  padding-top: 2rem;
+  width: 800px;
+  max-width: 100%;
+  height: 600px;
+  max-height: 100%;
+
+  z-index: 9999;
+}
+
+.modal-content {
+  overflow: scroll;
+  height: 100%;
+
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.modal-content h1 {
+  text-transform: none;
+}
+
+.frosted-glass {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ffffffcc;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  background-color: #eeeeee;
+  border: 0;
+  border-radius: 100%;
+  cursor: pointer;
+
+  padding: 1rem;
+  font-size: 2rem;
+}

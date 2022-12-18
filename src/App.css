@@ -1,3 +1,7 @@
+body {
+  color: #3c4754;
+}
+
 #main {
   display: flex;
   flex-direction: column;
@@ -19,4 +23,19 @@
 
 .blocks > div {
   width: 30%;
+}
+
+.info-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  background-color: #fff;
+  border: 0;
+  font-size: 2rem;
+  color: #2660a4;
+  padding: 1rem;
+  font-weight: 800;
+
+  cursor: pointer;
 }
