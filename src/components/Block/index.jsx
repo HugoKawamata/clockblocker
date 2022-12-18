@@ -12,7 +12,10 @@ type Props = {
 function Block(props: Props) {
   const getInnerStyle = () => {
     const startTime = DateTime.now().set(props.block.start)
-    const finishTime = DateTime.now().set(props.block.finish)
+    const finishTime =
+      props.block.finish.hour === 0
+        ? DateTime.now().plus({ days: 1 }).set(props.block.finish)
+        : DateTime.now().set(props.block.finish)
     const startPercentage = timeToClockPercentage(startTime, props.amOrPm)
     const finishPercentage = timeToClockPercentage(finishTime, props.amOrPm)
 
