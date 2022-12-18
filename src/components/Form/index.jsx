@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./styles.css"
 import { TimePicker } from "@mui/x-date-pickers/TimePicker"
 import TextField from "@mui/material/TextField"
@@ -19,6 +19,40 @@ function Form(props: Props) {
   const [color, setColor] = useState(COLORS.yellows.mid)
   const [name, setName] = useState("")
 
+  const timesAreValid =
+    startTime != null &&
+    finishTime != null &&
+    !startTime.invalid &&
+    !finishTime.invalid
+
+  const finishIsMidnight = () =>
+    finishTime.hour === 0 && finishTime.minute === 0
+
+  const finishIsMidnightAndNeedsAdjusting =
+    timesAreValid &&
+    finishIsMidnight() &&
+    startTime > finishTime &&
+    startTime.toISODate() === finishTime.toISODate()
+
+  const finishIsNotMidnightAndNeedsAdjusting =
+    timesAreValid &&
+    !finishIsMidnight() &&
+    finishTime.toISODate() !== startTime.toISODate()
+
+  useEffect(() => {
+    if (finishIsMidnightAndNeedsAdjusting) {
+      setFinishTime(finishTime.plus({ days: 1 }))
+    } else if (finishIsNotMidnightAndNeedsAdjusting) {
+      setFinishTime(
+        finishTime.set({
+          year: startTime.year,
+          month: startTime.month,
+          day: startTime.day,
+        })
+      )
+    }
+  })
+
   const newBlock = () => {
     return {
       color,
@@ -34,12 +68,23 @@ function Form(props: Props) {
     props.setBlocks(newArray)
   }
 
-  const canSubmit =
-    startTime != null &&
-    !startTime.invalid &&
-    finishTime != null &&
-    !finishTime.invalid &&
-    startTime < finishTime
+  const canSubmit = timesAreValid && startTime < finishTime
+
+  const validationWarnings = () => {
+    const warnings = []
+    if (timesAreValid && startTime > finishTime) {
+      warnings.push([
+        <div key="finish-before-start" className="validation-warning">
+          Finish time must be after start time
+        </div>,
+      ])
+    }
+    return (
+      warnings.length > 0 && (
+        <div className="validation-warnings">{warnings}</div>
+      )
+    )
+  }
 
   return (
     <div className="form">
@@ -78,13 +123,16 @@ function Form(props: Props) {
 
       <ColorPicker color={color} setColor={setColor} />
 
-      <Button
-        variant="contained"
-        onClick={createNewBlock}
-        disabled={!canSubmit}
-      >
-        Create Block
-      </Button>
+      <div className="button-wrapper">
+        <Button
+          variant="contained"
+          onClick={createNewBlock}
+          disabled={!canSubmit}
+        >
+          Create Block
+        </Button>
+        {validationWarnings()}
+      </div>
     </div>
   )
 }
