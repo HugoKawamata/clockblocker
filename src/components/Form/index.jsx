@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
-import "./styles.css"
 import { TimePicker } from "@mui/x-date-pickers/TimePicker"
 import TextField from "@mui/material/TextField"
 import Button from "@mui/material/Button"
 import { DateTime } from "luxon"
+import _ from "lodash"
+import "./styles.css"
 import ColorPicker from "./ColorPicker"
 import * as Types from "../../types"
 import { COLORS } from "../../constants"
@@ -112,10 +113,23 @@ function Form(props: Props) {
             <TimePicker
               label="Start time"
               value={startTime}
+              disableMaskedInput
+              inputFormat="h:mma"
               onChange={(newValue: DateTime) => {
+                console.log(newValue)
                 setStartTime(newValue)
               }}
-              renderInput={(params) => <TextField {...params} />}
+              placeholder="gunga"
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  inputProps={{
+                    ...params.inputProps,
+                    value: _.toLower(params.inputProps.value),
+                    placeholder: "e.g. 9:00am",
+                  }}
+                />
+              )}
             />
           </div>
 
@@ -123,10 +137,21 @@ function Form(props: Props) {
             <TimePicker
               label="Finish time"
               value={finishTime}
+              disableMaskedInput
+              inputFormat="h:mma"
               onChange={(newValue: DateTime) => {
                 setFinishTime(newValue)
               }}
-              renderInput={(params) => <TextField {...params} />}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  inputProps={{
+                    ...params.inputProps,
+                    value: _.toLower(params.inputProps.value),
+                    placeholder: "e.g. 12:30pm",
+                  }}
+                />
+              )}
             />
           </div>
 
