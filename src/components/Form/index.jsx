@@ -122,7 +122,7 @@ function Form(props: Props) {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  inputProps={{ placeholder: "e.g. 10:00am" }}
+                  inputProps={{ placeholder: "e.g. 9:00am" }}
                 />
               )}
             />
@@ -140,7 +140,7 @@ function Form(props: Props) {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  inputProps={{ placeholder: "e.g. 5:00pm" }}
+                  inputProps={{ placeholder: "e.g. 12:30pm" }}
                 />
               )}
             />
