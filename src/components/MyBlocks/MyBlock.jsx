@@ -32,9 +32,9 @@ function MyBlock(props: Props) {
       <span className="inline-text">
         {`${DateTime.now()
           .set(props.block.start)
-          .toFormat("HH:mm")} - ${DateTime.now()
+          .toFormat("h:mm a")} - ${DateTime.now()
           .set(props.block.finish)
-          .toFormat("HH:mm")}`}
+          .toFormat("h:mm a")}`}
       </span>
       <button onClick={props.deleteBlock}>X</button>
     </div>
