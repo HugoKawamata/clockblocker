@@ -7,6 +7,7 @@ import * as Types from "../../types"
 type Props = {
   amOrPm: "am" | "pm",
   block: Types.Block,
+  ghost: boolean,
 }
 
 function Block(props: Props) {
@@ -18,9 +19,10 @@ function Block(props: Props) {
         : DateTime.now().set(props.block.finish)
     const startPercentage = timeToClockPercentage(startTime, props.amOrPm)
     const finishPercentage = timeToClockPercentage(finishTime, props.amOrPm)
+    const ghostOpacityHex = props.ghost ? "AA" : "FF"
 
     return {
-      background: `conic-gradient(#0000 calc(${startPercentage}*1%), ${props.block.color} calc(${startPercentage}*1%), ${props.block.color} calc(${finishPercentage}*1%), #0000 0%)`,
+      background: `conic-gradient(#0000 calc(${startPercentage}*1%), ${props.block.color}${ghostOpacityHex} calc(${startPercentage}*1%), ${props.block.color}${ghostOpacityHex} calc(${finishPercentage}*1%), #0000 0%)`,
     }
   }
 

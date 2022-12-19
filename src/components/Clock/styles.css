@@ -15,14 +15,72 @@ h1 {
   min-height: 30rem;
   position: relative;
   padding: 2rem;
+  display: flex;
 }
 
 .outer-clock-face {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  height: 100%;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
   border-radius: 100%;
+}
+
+.clock-number {
+  position: absolute;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.clock-number.twelve {
+  left: 48%;
+}
+.clock-number.one {
+  top: 12%;
+  left: 70%;
+}
+.clock-number.two {
+  top: 27%;
+  left: 85%;
+}
+.clock-number.three {
+  top: 48%;
+  left: 90%;
+}
+.clock-number.four {
+  top: 69%;
+  left: 85%;
+}
+.clock-number.five {
+  top: 85%;
+  left: 70%;
+}
+.clock-number.six {
+  top: 90%;
+  left: 48.5%;
+}
+.clock-number.seven {
+  top: 85%;
+  left: 28%;
+}
+.clock-number.eight {
+  top: 69%;
+  left: 12%;
+}
+.clock-number.nine {
+  top: 48%;
+  left: 7%;
+}
+.clock-number.ten {
+  top: 27%;
+  left: 11%;
+}
+.clock-number.eleven {
+  top: 12%;
+  left: 27%;
 }
 
 .outer-clock-face::after,

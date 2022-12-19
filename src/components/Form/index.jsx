@@ -10,7 +10,8 @@ import { COLORS } from "../../constants"
 
 type Props = {
   blocks: Types.Block[],
-  setBlocks: (block: Types.Block[]) => void,
+  setBlocks: (blocks: Types.Block[]) => void,
+  setGhostBlock: (block: Types.Block) => void,
 }
 
 function Form(props: Props) {
@@ -51,7 +52,22 @@ function Form(props: Props) {
         })
       )
     }
-  })
+  }, [finishTime, startTime])
+
+  const maybeSetGhostBlock = () => {
+    if (timesAreValid) {
+      props.setGhostBlock({
+        color,
+        name,
+        start: { hour: startTime.hour, minute: startTime.minute },
+        finish: { hour: finishTime.hour, minute: finishTime.minute },
+      })
+    }
+  }
+
+  useEffect(() => {
+    maybeSetGhostBlock()
+  }, [finishTime, startTime, color, name])
 
   const newBlock = () => {
     return {
@@ -65,6 +81,7 @@ function Form(props: Props) {
   const createNewBlock = () => {
     const newArray = props.blocks.concat([newBlock()])
 
+    props.setGhostBlock(null)
     props.setBlocks(newArray)
   }
 
@@ -89,49 +106,56 @@ function Form(props: Props) {
   return (
     <div className="form">
       <h2>Add new block</h2>
-      <div className="input-wrapper">
-        <TimePicker
-          label="Start time"
-          value={startTime}
-          onChange={(newValue: DateTime) => {
-            setStartTime(newValue)
-          }}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </div>
+      <div className="form-content">
+        <div className="form-left">
+          <div className="input-wrapper">
+            <TimePicker
+              label="Start time"
+              value={startTime}
+              onChange={(newValue: DateTime) => {
+                setStartTime(newValue)
+              }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </div>
 
-      <div className="input-wrapper">
-        <TimePicker
-          label="Finish time"
-          value={finishTime}
-          onChange={(newValue: DateTime) => {
-            setFinishTime(newValue)
-          }}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </div>
+          <div className="input-wrapper">
+            <TimePicker
+              label="Finish time"
+              value={finishTime}
+              onChange={(newValue: DateTime) => {
+                setFinishTime(newValue)
+              }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </div>
 
-      <div className="input-wrapper">
-        <TextField
-          label="Name"
-          value={name}
-          onChange={(event) => {
-            setName(event.target.value)
-          }}
-        />
-      </div>
+          <div className="input-wrapper">
+            <TextField
+              label="Name"
+              value={name}
+              onChange={(event) => {
+                setName(event.target.value)
+              }}
+            />
+          </div>
+        </div>
 
-      <ColorPicker color={color} setColor={setColor} />
+        <div className="form-right">
+          <ColorPicker color={color} setColor={setColor} />
 
-      <div className="button-wrapper">
-        <Button
-          variant="contained"
-          onClick={createNewBlock}
-          disabled={!canSubmit}
-        >
-          Create Block
-        </Button>
-        {validationWarnings()}
+          <div className="button-wrapper">
+            <Button
+              variant="contained"
+              onClick={createNewBlock}
+              disabled={!canSubmit}
+              fullWidth
+            >
+              Create Block
+            </Button>
+            {validationWarnings()}
+          </div>
+        </div>
       </div>
     </div>
   )

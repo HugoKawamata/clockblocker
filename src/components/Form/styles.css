@@ -1,5 +1,12 @@
-.form {
-  width: 30%;
+.form-content {
+  display: flex;
+}
+
+.form-right {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .input-wrapper {
@@ -8,9 +15,12 @@
   margin-bottom: 1rem;
 }
 
+.input-wrapper:last-of-type {
+  margin-bottom: 0;
+}
+
 .color-picker {
   display: flex;
-  margin-bottom: 2rem;
 }
 
 .color-column {
