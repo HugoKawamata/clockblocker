@@ -12,16 +12,22 @@ body {
 
 .clocks {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .blocks {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap-reverse;
   width: 100%;
 }
 
 .blocks > div {
-  width: 30%;
+  width: 40%;
+  min-width: 404px;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .info-button {

@@ -15,6 +15,7 @@ h1 {
   min-height: 30rem;
   position: relative;
   padding: 2rem;
+  display: flex;
 }
 
 .outer-clock-face {
