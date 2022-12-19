@@ -116,7 +116,6 @@ function Form(props: Props) {
               disableMaskedInput
               inputFormat="h:mma"
               onChange={(newValue: DateTime) => {
-                console.log(newValue)
                 setStartTime(newValue)
               }}
               placeholder="gunga"
