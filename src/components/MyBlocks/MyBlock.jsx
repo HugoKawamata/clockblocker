@@ -30,11 +30,11 @@ function MyBlock(props: Props) {
       />
       <span className="inline-text">{props.block.name}</span>
       <span className="inline-text">
-        {DateTime.now().set(props.block.start).toFormat("HH:mm")}
-      </span>
-      <span className="inline-text">-</span>
-      <span className="inline-text">
-        {DateTime.now().set(props.block.finish).toFormat("HH:mm")}
+        {`${DateTime.now()
+          .set(props.block.start)
+          .toFormat("HH:mm")} - ${DateTime.now()
+          .set(props.block.finish)
+          .toFormat("HH:mm")}`}
       </span>
       <button onClick={props.deleteBlock}>X</button>
     </div>
