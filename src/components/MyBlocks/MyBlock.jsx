@@ -24,19 +24,25 @@ function MyBlock(props: Props) {
 
   return (
     <div className={`my-block ${status}`}>
-      <span
-        className="color-square"
-        style={{ backgroundColor: props.block.color }}
-      />
-      <span className="inline-text">{props.block.name}</span>
-      <span className="inline-text">
-        {`${DateTime.now()
-          .set(props.block.start)
-          .toFormat("h:mm a")} - ${DateTime.now()
-          .set(props.block.finish)
-          .toFormat("h:mm a")}`}
-      </span>
-      <button onClick={props.deleteBlock}>X</button>
+      <div className="my-block-inner">
+        <span
+          className="color-square"
+          style={{ backgroundColor: props.block.color }}
+        />
+        <span className="inline-text">{props.block.name}</span>
+      </div>
+      <div className="my-block-inner">
+        <span className="inline-text">
+          {`${DateTime.now()
+            .set(props.block.start)
+            .toFormat("h:mm a")} - ${DateTime.now()
+            .set(props.block.finish)
+            .toFormat("h:mm a")}`}
+        </span>
+        <button className="delete-block-button" onClick={props.deleteBlock}>
+          ✖
+        </button>
+      </div>
     </div>
   )
 }
