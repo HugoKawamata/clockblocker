@@ -4,6 +4,13 @@
   align-items: flex-start;
 }
 
+.button-wrapper {
+  padding-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .my-block {
   width: 100%;
   padding-left: 0.8rem;
