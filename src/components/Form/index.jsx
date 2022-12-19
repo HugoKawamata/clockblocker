@@ -148,7 +148,7 @@ function Form(props: Props) {
                   inputProps={{
                     ...params.inputProps,
                     value: _.toLower(params.inputProps.value),
-                    placeholder: "e.g. 9:00am",
+                    placeholder: "e.g. 12:30pm",
                   }}
                 />
               )}
