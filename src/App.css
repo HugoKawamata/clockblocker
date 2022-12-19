@@ -42,10 +42,10 @@ body {
 
 .info-button {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0;
+  right: 0;
 
-  background-color: #fff;
+  background-color: transparent;
   border: 0;
   font-size: 2rem;
   color: #2660a4;
