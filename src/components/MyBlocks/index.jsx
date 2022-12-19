@@ -30,7 +30,7 @@ function MyBlocks(props: Props) {
         )
         .map((block) => (
           <MyBlock
-            key={block.toString()}
+            key={JSON.stringify(block)}
             block={block}
             deleteBlock={() =>
               props.setBlocks(
