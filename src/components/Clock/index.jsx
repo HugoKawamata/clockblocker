@@ -51,7 +51,7 @@ function Clock(props: Props) {
           <div className="inner-clock-face">
             {props.blocks.map((block: Types.Block) => (
               <Block
-                key={block.toString()}
+                key={JSON.stringify(block)}
                 block={block}
                 amOrPm={props.amOrPm}
               />
