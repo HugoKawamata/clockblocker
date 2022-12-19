@@ -72,6 +72,10 @@ h2 {
   flex: 1 1;
 }
 
+.blocks > div > h2 {
+  margin-top: 0.5rem;
+}
+
 .info-button {
   position: absolute;
   top: 0;
