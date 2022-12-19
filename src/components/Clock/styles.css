@@ -11,11 +11,18 @@ h1 {
 }
 
 .clock {
-  min-width: 30rem;
-  min-height: 30rem;
+  min-width: 27rem;
+  min-height: 27rem;
   position: relative;
   padding: 2rem;
   display: flex;
+}
+
+@media only screen and (max-width: 496px) {
+  .clock {
+    min-width: 95vw;
+    min-height: 95vw;
+  }
 }
 
 .outer-clock-face {

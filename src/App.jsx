@@ -16,7 +16,7 @@ import { blockInAm, blockInPm } from "./helpers"
 function App() {
   const [infoModalOpen, setInfoModalOpen] = useState(false)
   const [infoModalText, setInfoModalText] = useState("")
-  const [time, setTime] = useState(DateTime.now())
+  const [time, setTime] = useState(DateTime.now().startOf("day"))
   const [showTitle, setShowTitle] = useState(true)
   const [blocks, setBlocksRaw] = useState([])
   const [ghostBlock, setGhostBlock] = useState(null)
@@ -35,12 +35,12 @@ function App() {
       .then((text) => setInfoModalText(text))
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => setTime(DateTime.now()), 10000)
-    return () => {
-      clearInterval(interval)
-    }
-  }, [])
+  // useEffect(() => {
+  //   const interval = setInterval(() => setTime(DateTime.now()), 10000)
+  //   return () => {
+  //     clearInterval(interval)
+  //   }
+  // }, [])
 
   useEffect(() => {
     const timer = setTimeout(() => setShowTitle(false), 3000)
