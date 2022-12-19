@@ -16,7 +16,7 @@ import { blockInAm, blockInPm } from "./helpers"
 function App() {
   const [infoModalOpen, setInfoModalOpen] = useState(false)
   const [infoModalText, setInfoModalText] = useState("")
-  const [time, setTime] = useState(DateTime.now().start)
+  const [time, setTime] = useState(DateTime.now())
   const [showTitle, setShowTitle] = useState(true)
   const [blocks, setBlocksRaw] = useState([])
   const [ghostBlock, setGhostBlock] = useState(null)
