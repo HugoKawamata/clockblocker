@@ -32,12 +32,10 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap-reverse;
-  width: 100%;
 }
 
 .blocks > div {
-  width: 40%;
-  min-width: 404px;
+  width: 30rem;
   margin-left: 2rem;
   margin-right: 2rem;
 }
