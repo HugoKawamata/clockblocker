@@ -4,18 +4,19 @@
   text-align: center;
 }
 
-h1 {
-  text-transform: uppercase;
-  font-size: 50px;
-  margin: 0;
-}
-
 .clock {
-  min-width: 30rem;
-  min-height: 30rem;
+  min-width: 27rem;
+  min-height: 27rem;
   position: relative;
   padding: 2rem;
   display: flex;
+}
+
+@media only screen and (max-width: 496px) {
+  .clock {
+    min-width: 95vw;
+    min-height: 95vw;
+  }
 }
 
 .outer-clock-face {
@@ -37,6 +38,7 @@ h1 {
 
 .clock-number.twelve {
   left: 48%;
+  top: 6%;
 }
 .clock-number.one {
   top: 12%;
@@ -47,7 +49,7 @@ h1 {
   left: 85%;
 }
 .clock-number.three {
-  top: 48%;
+  top: 47.5%;
   left: 90%;
 }
 .clock-number.four {

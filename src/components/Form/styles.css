@@ -1,13 +1,15 @@
 .form-content {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .form-left {
-  flex-grow: 1;
+  flex: 1 1 12rem;
+  min-width: 12rem;
 }
 
 .form-right {
-  margin-left: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
