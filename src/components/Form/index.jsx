@@ -10,7 +10,8 @@ import { COLORS } from "../../constants"
 
 type Props = {
   blocks: Types.Block[],
-  setBlocks: (block: Types.Block[]) => void,
+  setBlocks: (blocks: Types.Block[]) => void,
+  setGhostBlock: (block: Types.Block) => void,
 }
 
 function Form(props: Props) {
@@ -51,7 +52,22 @@ function Form(props: Props) {
         })
       )
     }
-  })
+  }, [finishTime, startTime])
+
+  const maybeSetGhostBlock = () => {
+    if (timesAreValid) {
+      props.setGhostBlock({
+        color,
+        name,
+        start: { hour: startTime.hour, minute: startTime.minute },
+        finish: { hour: finishTime.hour, minute: finishTime.minute },
+      })
+    }
+  }
+
+  useEffect(() => {
+    maybeSetGhostBlock()
+  }, [finishTime, startTime, color, name])
 
   const newBlock = () => {
     return {
@@ -65,6 +81,7 @@ function Form(props: Props) {
   const createNewBlock = () => {
     const newArray = props.blocks.concat([newBlock()])
 
+    props.setGhostBlock(null)
     props.setBlocks(newArray)
   }
 

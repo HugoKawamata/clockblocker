@@ -18,6 +18,7 @@ function App() {
   const [infoModalText, setInfoModalText] = useState("")
   const [time, setTime] = useState(DateTime.now())
   const [blocks, setBlocksRaw] = useState([])
+  const [ghostBlock, setGhostBlock] = useState(null)
   const setBlocks = (blocks: Types.Blocks) => {
     document.cookie = JSON.stringify(blocks)
     return setBlocksRaw(blocks)
@@ -50,16 +51,26 @@ function App() {
           <Clock
             amOrPm="am"
             blocks={blocks.filter((block) => blockInAm(block))}
+            ghostBlock={
+              ghostBlock != null && blockInAm(ghostBlock) ? ghostBlock : null
+            }
             currentTime={time}
           />
           <Clock
             amOrPm="pm"
             blocks={blocks.filter((block) => blockInPm(block))}
+            ghostBlock={
+              ghostBlock != null && blockInPm(ghostBlock) ? ghostBlock : null
+            }
             currentTime={time}
           />
         </section>
         <section className="blocks">
-          <Form blocks={blocks} setBlocks={setBlocks} />
+          <Form
+            blocks={blocks}
+            setBlocks={setBlocks}
+            setGhostBlock={setGhostBlock}
+          />
           <MyBlocks blocks={blocks} setBlocks={setBlocks} />
         </section>
       </div>

@@ -7,8 +7,9 @@ import Block from "../Block"
 
 type Props = {
   amOrPm: "am" | "pm",
-  blocks: Types.Block,
+  blocks: Types.Block[],
   currentTime: DateTime,
+  ghostBlock: Types.Block,
 }
 
 function Clock(props: Props) {
@@ -56,6 +57,9 @@ function Clock(props: Props) {
               />
             ))}
             <div className={`clock-block-mask ${props.amOrPm}`} />
+            {props.ghostBlock != null && (
+              <Block block={props.ghostBlock} amOrPm={props.amOrPm} ghost />
+            )}
           </div>
         </div>
       </div>
