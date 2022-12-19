@@ -35,7 +35,7 @@ body {
 }
 
 .blocks > div {
-  width: 30rem;
+  max-width: 30rem;
   margin-left: 2rem;
   margin-right: 2rem;
 }
