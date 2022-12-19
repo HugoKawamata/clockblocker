@@ -17,6 +17,7 @@ function App() {
   const [infoModalOpen, setInfoModalOpen] = useState(false)
   const [infoModalText, setInfoModalText] = useState("")
   const [time, setTime] = useState(DateTime.now())
+  const [showTitle, setShowTitle] = useState(true)
   const [blocks, setBlocksRaw] = useState([])
   const [ghostBlock, setGhostBlock] = useState(null)
   const setBlocks = (blocks: Types.Blocks) => {
@@ -41,9 +42,19 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+    const timer = setTimeout(() => setShowTitle(false), 3000)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [showTitle])
+
   return (
     <LocalizationProvider dateAdapter={AdapterLuxon}>
       <div id="main">
+        <h1 id="title" className={showTitle ? "" : "fade-out"}>
+          🕗 Clockblocker 🕓
+        </h1>
         <button className="info-button" onClick={() => setInfoModalOpen(true)}>
           ⓘ
         </button>
