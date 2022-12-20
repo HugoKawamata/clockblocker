@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 192px
 }
 
 .input-wrapper {
@@ -27,6 +28,7 @@
 
 .color-picker {
   display: flex;
+  justify-content: center;
 }
 
 .color-column {
@@ -47,15 +49,19 @@
   border-color: #000000;
 }
 
-.button-wrapper {
+.create-button-wrapper {
+  margin-top: 0.5rem;
   display: flex;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
 }
 
 .validation-warnings {
+  margin-top: 0.5rem;
+  margin-left: 0.2rem;
   justify-content: center;
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
 }
 
 .validation-warning {

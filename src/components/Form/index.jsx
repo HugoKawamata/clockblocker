@@ -93,7 +93,7 @@ function Form(props: Props) {
     if (timesAreValid && startTime > finishTime) {
       warnings.push([
         <div key="finish-before-start" className="validation-warning">
-          Finish time must be after start time
+          Finish must be after start
         </div>,
       ])
     }
@@ -167,8 +167,8 @@ function Form(props: Props) {
 
         <div className="form-right">
           <ColorPicker color={color} setColor={setColor} />
-
-          <div className="button-wrapper">
+          {validationWarnings()}
+          <div className="create-button-wrapper">
             <Button
               variant="contained"
               onClick={createNewBlock}
@@ -177,7 +177,6 @@ function Form(props: Props) {
             >
               Create Block
             </Button>
-            {validationWarnings()}
           </div>
         </div>
       </div>

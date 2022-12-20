@@ -39,7 +39,7 @@ function MyBlocks(props: Props) {
             }
           />
         ))}
-      <div className="button-wrapper">
+      <div className="delete-button-wrapper">
         <Button
           variant="outlined"
           color="error"
