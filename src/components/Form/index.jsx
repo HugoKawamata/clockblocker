@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { TimePicker } from "@mui/x-date-pickers/TimePicker"
+import SyncIcon from "@mui/icons-material/SyncAlt"
 import TextField from "@mui/material/TextField"
 import Button from "@mui/material/Button"
 import { DateTime } from "luxon"
@@ -132,6 +133,19 @@ function Form(props: Props) {
             />
           </div>
 
+          <div className="input-wrapper">
+            <Button
+              variant="outlined"
+              startIcon={<SyncIcon />}
+              onClick={() => {
+                const prevFinish = finishTime
+                setFinishTime(startTime)
+                setStartTime(prevFinish)
+              }}
+            >
+              Swap times
+            </Button>
+          </div>
           <div className="input-wrapper">
             <TimePicker
               label="Finish time"
