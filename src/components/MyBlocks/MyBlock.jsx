@@ -26,11 +26,11 @@ function MyBlock(props: Props) {
   }
 
   return (
-    <a
-      className={props.beingEdited ? "my-block-link" : "my-block-link-editable"}
-      onClick={!props.beingEdited && props.setEditing}
-    >
-      <div className={`my-block ${status}`}>
+    <div className={`my-block ${status}`}>
+      <a
+        className={props.beingEdited ? "" : "my-block-link-editable"}
+        onClick={!props.beingEdited && props.setEditing}
+      >
         <div className="my-block-inner">
           {props.beingEdited ? (
             <span className="color-square">
@@ -44,20 +44,20 @@ function MyBlock(props: Props) {
           )}
           <span className="inline-text">{props.block.name}</span>
         </div>
-        <div className="my-block-inner">
-          <span className="inline-text">
-            {`${DateTime.now()
-              .set(props.block.start)
-              .toFormat("h:mm a")} - ${DateTime.now()
-              .set(props.block.finish)
-              .toFormat("h:mm a")}`}
-          </span>
-          <button className="delete-block-button" onClick={props.deleteBlock}>
-            ✖
-          </button>
-        </div>
+      </a>
+      <div className="my-block-inner">
+        <span className="inline-text">
+          {`${DateTime.now()
+            .set(props.block.start)
+            .toFormat("h:mm a")} - ${DateTime.now()
+            .set(props.block.finish)
+            .toFormat("h:mm a")}`}
+        </span>
+        <button className="delete-block-button" onClick={props.deleteBlock}>
+          ✖
+        </button>
       </div>
-    </a>
+    </div>
   )
 }
 

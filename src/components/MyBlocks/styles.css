@@ -11,13 +11,8 @@
   justify-content: flex-end;
 }
 
-.my-block-link {
-  width: 100%;
-}
-
 .my-block-link-editable {
   cursor: pointer;
-  width: 100%;
 }
 
 .my-block {
