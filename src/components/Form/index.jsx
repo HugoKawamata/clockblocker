@@ -110,6 +110,8 @@ function Form(props: Props) {
   const createNewBlock = () => {
     const newArray = props.blocks.concat([newBlock()])
 
+    setStartTime(finishTime)
+    setFinishTime(null)
     props.setGhostBlock(null)
     props.setBlocks(newArray)
   }
