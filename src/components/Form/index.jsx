@@ -44,10 +44,11 @@ function Form(props: Props) {
     !finishIsMidnight() &&
     finishTime.toISODate() !== startTime.toISODate()
 
+  const editingBlock = props.blocks.find(
+    (block) => block.id === props.editingBlockId
+  )
+
   useEffect(() => {
-    const editingBlock = props.blocks.find(
-      (block) => block.id === props.editingBlockId
-    )
     if (editingBlock) {
       setStartTime(DateTime.fromObject(editingBlock.start))
       setFinishTime(DateTime.fromObject(editingBlock.finish))
@@ -112,6 +113,7 @@ function Form(props: Props) {
 
     setStartTime(finishTime)
     setFinishTime(null)
+    setName("")
     props.setGhostBlock(null)
     props.setBlocks(newArray)
   }
@@ -127,6 +129,9 @@ function Form(props: Props) {
         }
       })
     )
+    setStartTime(null)
+    setFinishTime(null)
+    setName("")
     props.setEditingBlockId(null)
   }
 
@@ -150,7 +155,11 @@ function Form(props: Props) {
 
   return (
     <div className="form">
-      <h2>{props.editingBlockId ? "Edit block" : "Add new block"}</h2>
+      <h2>
+        {props.editingBlockId
+          ? `Editing ${editingBlock.name}`
+          : "Add new block"}
+      </h2>
       <div className="form-content">
         <div className="form-left">
           <div className="input-wrapper">
