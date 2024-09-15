@@ -27,7 +27,7 @@ function MyBlock(props: Props) {
 
   return (
     <a
-      className={props.beingEdited ? "" : "my-block-editable"}
+      className={props.beingEdited ? "my-block-link" : "my-block-link-editable"}
       onClick={!props.beingEdited && props.setEditing}
     >
       <div className={`my-block ${status}`}>

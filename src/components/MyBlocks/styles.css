@@ -11,6 +11,15 @@
   justify-content: flex-end;
 }
 
+.my-block-link {
+  width: 100%;
+}
+
+.my-block-link-editable {
+  cursor: pointer;
+  width: 100%;
+}
+
 .my-block {
   width: 100%;
   padding-left: 0.8rem;
@@ -23,9 +32,6 @@
   border-radius: 3px;
 }
 
-.my-block-editable {
-  cursor: pointer;
-}
 
 .my-block-inner {
   display: flex;
