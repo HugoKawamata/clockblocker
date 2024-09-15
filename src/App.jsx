@@ -19,6 +19,7 @@ function App() {
   const [time, setTime] = useState(DateTime.now())
   const [showTitle, setShowTitle] = useState(true)
   const [blocks, setBlocksRaw] = useState([])
+  const [editingBlockId, setEditingBlockId] = useState(null)
   const [ghostBlock, setGhostBlock] = useState(null)
   const setBlocks = (blocks: Types.Blocks) => {
     document.cookie = JSON.stringify(blocks)
@@ -79,10 +80,16 @@ function App() {
         <section className="blocks">
           <Form
             blocks={blocks}
+            editingBlockId={editingBlockId}
             setBlocks={setBlocks}
+            setEditingBlockId={setEditingBlockId}
             setGhostBlock={setGhostBlock}
           />
-          <MyBlocks blocks={blocks} setBlocks={setBlocks} />
+          <MyBlocks
+            blocks={blocks}
+            setBlocks={setBlocks}
+            setEditingBlockId={setEditingBlockId}
+          />
         </section>
       </div>
       <Modal open={infoModalOpen} setModalOpen={setInfoModalOpen}>

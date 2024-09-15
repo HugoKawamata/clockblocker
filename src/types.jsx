@@ -6,6 +6,7 @@ export type ClockPosition = {
 export type Block = {
   color: string,
   finish: ClockPosition,
+  id: string,
   name: string,
   start: ClockPosition,
 }

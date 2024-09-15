@@ -12,7 +12,9 @@ import { COLORS } from "../../constants"
 
 type Props = {
   blocks: Types.Block[],
+  editingBlockId: ?string,
   setBlocks: (blocks: Types.Block[]) => void,
+  setEditingBlockId: (blockId: ?string) => void,
   setGhostBlock: (block: Types.Block) => void,
 }
 
@@ -43,6 +45,30 @@ function Form(props: Props) {
     finishTime.toISODate() !== startTime.toISODate()
 
   useEffect(() => {
+    const editingBlock = props.blocks.find(
+      (block) => block.id === props.editingBlockId
+    )
+    if (editingBlock) {
+      setStartTime(DateTime.fromObject(editingBlock.start))
+      setFinishTime(DateTime.fromObject(editingBlock.finish))
+      setName(editingBlock.name)
+      setColor(editingBlock.color)
+
+      // After setting form inputs, change the existing block to be transparent so our ghost
+      // block can pretend to be it.
+      props.setBlocks(
+        props.blocks.map((block) => {
+          if (block.id !== editingBlock.id) {
+            return block
+          } else {
+            return { ...editingBlock, color: "transparent" }
+          }
+        })
+      )
+    }
+  }, [props.editingBlockId])
+
+  useEffect(() => {
     if (finishIsMidnightAndNeedsAdjusting) {
       setFinishTime(finishTime.plus({ days: 1 }))
     } else if (finishIsNotMidnightAndNeedsAdjusting) {
@@ -71,10 +97,11 @@ function Form(props: Props) {
     maybeSetGhostBlock()
   }, [finishTime, startTime, color, name])
 
-  const newBlock = () => {
+  const newBlock = (id: ?string) => {
     return {
       color,
       name,
+      id: id || self.crypto.randomUUID(),
       start: { hour: startTime.hour, minute: startTime.minute },
       finish: { hour: finishTime.hour, minute: finishTime.minute },
     }
@@ -85,6 +112,20 @@ function Form(props: Props) {
 
     props.setGhostBlock(null)
     props.setBlocks(newArray)
+  }
+
+  const updateBlock = () => {
+    const newArray = props.blocks.slice()
+    props.setBlocks(
+      newArray.map((block) => {
+        if (block.id !== props.editingBlockId) {
+          return block
+        } else {
+          return newBlock(props.editingBlockId)
+        }
+      })
+    )
+    props.setEditingBlockId(null)
   }
 
   const canSubmit = timesAreValid && startTime < finishTime
@@ -107,7 +148,7 @@ function Form(props: Props) {
 
   return (
     <div className="form">
-      <h2>Add new block</h2>
+      <h2>{props.editingBlockId ? "Edit block" : "Add new block"}</h2>
       <div className="form-content">
         <div className="form-left">
           <div className="input-wrapper">
@@ -185,11 +226,11 @@ function Form(props: Props) {
           <div className="create-button-wrapper">
             <Button
               variant="contained"
-              onClick={createNewBlock}
+              onClick={props.editingBlockId ? updateBlock : createNewBlock}
               disabled={!canSubmit}
               fullWidth
             >
-              Create Block
+              {props.editingBlockId ? "Update Block" : "Create Block"}
             </Button>
           </div>
         </div>

@@ -1,7 +1,5 @@
 # Clockblocker
 
-https://clockblocker.netlify.app/
-
 ## What is Clockblocker?
 
 Clockblocker is a tool for visually planning out your time. It was inspired by
@@ -32,15 +30,7 @@ they seemed perfect for managing my time, but with just one issue - those
 clocks are _stopwatches_, and I wanted a 12 hour clock. So I made this!
 
 Please direct feedback to my messages or askbox at
-[www.tumblr.com/jimmy-dipthong](https://www.tumblr.com/jimmy-dipthong)
+[www.tumblr.com/haru-dipthong](https://www.tumblr.com/haru-dipthong)
 
 This project is open source. Feel free to make a PR if you want to add a feature
 or fix a bug yourself: [Github Repo](https://github.com/HugoKawamata/clockblocker)
-
-### Donations?
-
-I have a well paying software job, so although I'd be honoured if you
-appreciated this little app enough to want to donate to me, I don't
-need the money. Instead, send what money you would have sent me to
-[Effective Altruism](https://effectivealtruism.org.au/donate/) (they try to save the most life
-per dollar given).

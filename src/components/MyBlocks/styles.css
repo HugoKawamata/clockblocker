@@ -21,6 +21,7 @@
   justify-content: space-between;
   margin-right: 1rem;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .my-block-inner {

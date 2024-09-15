@@ -9,6 +9,7 @@ import MyBlock from "./MyBlock"
 type Props = {
   blocks: Types.Block[],
   setBlocks: (blocks: Types.Block[]) => void,
+  setEditingBlockId: (blockId: ?string) => void,
 }
 
 function MyBlocks(props: Props) {
@@ -37,6 +38,7 @@ function MyBlocks(props: Props) {
                 props.blocks.filter((arrBlock) => !_.isEqual(arrBlock, block))
               )
             }
+            setEditing={() => props.setEditingBlockId(block.id)}
           />
         ))}
       <div className="delete-button-wrapper">
