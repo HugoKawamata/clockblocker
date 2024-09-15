@@ -87,6 +87,7 @@ function App() {
           />
           <MyBlocks
             blocks={blocks}
+            editingBlockId={editingBlockId}
             setBlocks={setBlocks}
             setEditingBlockId={setEditingBlockId}
           />

@@ -1,11 +1,13 @@
 import React from "react"
 import { DateTime } from "luxon"
+import EditIcon from "@mui/icons-material/Edit"
 import "./styles.css"
 import * as Types from "../../types"
 
 type Props = {
   block: Types.Block,
   deleteBlock: () => void,
+  beingEdited: boolean,
   setEditing: () => void,
 }
 
@@ -24,13 +26,22 @@ function MyBlock(props: Props) {
   }
 
   return (
-    <a onClick={props.setEditing}>
+    <a
+      className={props.beingEdited ? "" : "my-block-editable"}
+      onClick={!props.beingEdited && props.setEditing}
+    >
       <div className={`my-block ${status}`}>
         <div className="my-block-inner">
-          <span
-            className="color-square"
-            style={{ backgroundColor: props.block.color }}
-          />
+          {props.beingEdited ? (
+            <span className="color-square">
+              <EditIcon fontSize="small" />
+            </span>
+          ) : (
+            <span
+              className="color-square"
+              style={{ backgroundColor: props.block.color }}
+            />
+          )}
           <span className="inline-text">{props.block.name}</span>
         </div>
         <div className="my-block-inner">
